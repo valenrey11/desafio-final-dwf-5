@@ -12,12 +12,20 @@ const routes = [
   { path: /\/results\/win/, handle: initWin },
   { path: /\/results\/loss/, handle: initLoss },
 ];
+const BASE_PATH = "/desafio-final-dwf-5";
+function isGithubPages() {
+  return location.host.includes("github.io");
+}
 
 function initRouter(contenedor: Element) {
   function goTo(path: string | URL) {
-    history.pushState({}, "", path);
-    handleRoute(path);
+    // history.pushState({}, "", path);
+    // handleRoute(path);
+    const completePath = isGithubPages() ? BASE_PATH + path : path;
+    history.pushState({}, "", completePath);
+    handleRoute(completePath);
   }
+
   if (location.pathname == "/") {
     goTo("/welcome");
   } else {
@@ -27,8 +35,9 @@ function initRouter(contenedor: Element) {
     handleRoute(location.pathname);
   };
   function handleRoute(route) {
+    const newRoute = isGithubPages() ? route.replace(BASE_PATH, "") : route;
     for (const r of routes) {
-      if (r.path.test(route)) {
+      if (r.path.test(newRoute)) {
         const divEl = r.handle(goTo);
         if (contenedor.firstChild) {
           contenedor.firstChild.remove();

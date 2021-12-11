@@ -1,15 +1,17 @@
 {
   "name": "desafio-final",
   "version": "1.0.0",
-  "source": "src/index.html",
   "license": "MIT",
   "devDependencies": {
-    "parcel": "^2.0.1",
-    "gh-pages": "^3.2.3"
+    "parcel": "^2.0.1"
   },
   "scripts": {
-    "dev": "parcel",
-    "build": "parcel build",
-    "deploy": "yarn build && gh-pages"
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --dist-dir ./build --public-url /desafio-final-dwf-5",
+    "deploy": "gh-pages -d ./build",
+    "build-and-deploy": "yarn build && yarn deploy"
+  },
+  "dependencies": {
+    "gh-pages": "^3.2.3"
   }
 }
