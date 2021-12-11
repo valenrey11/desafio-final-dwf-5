@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  font-family: "Odibee Sans", cursive;
+}
+body {
+  margin: 0;
+}
+
+:root {
+  --verde: #009048;
+  --azul-boton: #006cfc;
+  --azul-borde: rgb(32, 29, 80) c;
+}
+
+.page-contenedor {
+  height: 100vh;
+}
+
+/*# sourceMappingURL=index.af814d91.css.map */
