@@ -1,0 +1,15 @@
+{
+  "name": "desafio-final",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "license": "MIT",
+  "devDependencies": {
+    "parcel": "^2.0.1",
+    "gh-pages": "^3.2.3"
+  },
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build",
+    "deploy": "yarn build && gh-pages"
+  }
+}
