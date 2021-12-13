@@ -20,7 +20,7 @@ export function initInstructions(change) {
       }
       @media(min-width:677px){
         .cont-inst{
-          padding: 200px;
+          padding:;
         }
       }
       `;

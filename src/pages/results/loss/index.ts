@@ -6,9 +6,11 @@ export function initLoss(change) {
             <my-estrella star="red" class="jugada"></my-estrella>
             <game-text class="texto" tag="h1">Perdiste</game-text>   
           </div>
-          <score-table></score-table>        
-          <div class="boton-contenedor">
+          <div class="score-and-button">
+            <score-table></score-table>        
+            <div class="boton-contenedor">
               <game-button class="boton">Volver a jugar!</game-button>
+            </div>
           </div>
         </div>
           `;
@@ -23,7 +25,7 @@ export function initLoss(change) {
             .cont-loss{
               display:flex;
               flex-direction:column;
-              gap:80px;
+              gap:20px;
             }
           }
           .cont-loss .texto{
@@ -42,6 +44,13 @@ export function initLoss(change) {
           }
           .boton-contenedor{
             margin-top:15px;
+          }
+          @media(min-width:677px){
+            .score-and-button{
+              display:flex;
+              justify-content:space-evenly;
+              align-items:center;
+            }
           }
           `;
 

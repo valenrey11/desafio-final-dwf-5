@@ -39,6 +39,11 @@ export function initReveal(change) {
           flex-direction:column;
           gap:300px;
         }
+        @media(min-width:677px){
+          .manos-contenedor{
+            gap:0px;
+          }
+        }
         .play{
           pointer-events: none;
         }
@@ -52,6 +57,15 @@ export function initReveal(change) {
           animation-name: user;
           animation-duration:1.5s;
           animation-fill-mode:forwards;
+        }
+        @media(min-width:677px){
+          .pc{
+            transform: rotate(180deg);
+            animation-name: none;
+          }
+          .user{
+            animation-name: none;
+          }
         }
         @keyframes pc {
           from {

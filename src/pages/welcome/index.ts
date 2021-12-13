@@ -25,10 +25,11 @@ export function initWelcome(change) {
       display: flex;
       flex-direction: column;
       align-items: center;
+      background-image: url("");
     }
     @media(min-width:677px){
       .cont-welc{
-        padding: 200px;
+        padding:;
       }
     }
     
