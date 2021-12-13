@@ -24,7 +24,7 @@ function initRouter(contenedor: Element) {
     handleRoute(completePath);
   }
   console.log(location.pathname, "externo");
-  if (location.pathname == "/desafio-final-dwf-5/") {
+  if (location.pathname == "/desafio-final-dwf-5/" || "/") {
     console.log(location.pathname, "if");
     goTo("/welcome");
   } else {
