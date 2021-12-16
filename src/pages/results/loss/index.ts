@@ -20,6 +20,7 @@ export function initLoss(change) {
             background: #894949E5;
             padding:30px;
             height:100vh;
+            overflow:auto;
           }
           @media(min-width:677px){
             .cont-loss{
@@ -32,11 +33,12 @@ export function initLoss(change) {
             --verde:white;
             text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
             position: absolute;  
-            top:60px;       
+            top:30px;       
           }
           .star-contenedor{
             display:flex;
             justify-content: center;
+            position:relative;
           }
           .score-table{
             border:solid;
@@ -44,13 +46,6 @@ export function initLoss(change) {
           }
           .boton-contenedor{
             margin-top:15px;
-          }
-          @media(min-width:677px){
-            .score-and-button{
-              display:flex;
-              justify-content:space-evenly;
-              align-items:center;
-            }
           }
           `;
 

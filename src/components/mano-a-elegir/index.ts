@@ -13,6 +13,11 @@ export function initObjetoJugada() {
       style.textContent = `
         .jugada:hover{
             transform:scale(1.5);
+          }
+          @media(min-width:677px){
+            .jugada:hover{
+            transform:scale(1.2);
+          }
         }
         @media(min-width:677px){
           .jugada{

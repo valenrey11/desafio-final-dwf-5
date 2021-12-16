@@ -13,9 +13,20 @@ export function initPlay(change) {
   </div>
   `;
   const current = state.getState();
+
+  let counter = 3;
+  const intervalId = setInterval(() => {
+    counter--;
+    if (counter == 0) {
+      change("/instructions");
+      clearInterval(intervalId);
+    }
+  }, 1100);
+
   div.querySelectorAll(".play").forEach((item) => {
     item.addEventListener("click", (e) => {
       e.preventDefault();
+      clearInterval(intervalId);
       const target: any = e.target;
       const playerPLaySelected = target.getAttribute("jugada");
 
@@ -24,7 +35,7 @@ export function initPlay(change) {
 
       setTimeout(() => {
         change("/reveal");
-      }, 1500);
+      }, 600);
     });
   });
 

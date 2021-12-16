@@ -16,7 +16,7 @@ export function initScore() {
         border: 10px solid;
         border-radius: 10px;
           width: 259px;
-          height: 217px;
+          padding:5px;
         margin:0 auto;
 
         display:flex;

@@ -21,14 +21,22 @@ function initRouter(contenedor: Element) {
   function goTo(path: string | URL) {
     const completePath = isGithubPages() ? BASE_PATH + path : path;
     history.pushState({}, "", completePath);
+    console.log(completePath, "complete path del goto");
+
     handleRoute(completePath);
   }
   console.log(location.pathname, "externo");
-  if (location.pathname == "/desafio-final-dwf-5/" || "/") {
-    console.log(location.pathname, "if");
+  if (
+    location.pathname == "/desafio-final-dwf-5/" ||
+    location.pathname == "/"
+  ) {
+    console.log(location.pathname, "ejecute el if");
+    console.log(true);
+
     goTo("/welcome");
   } else {
-    console.log(location.pathname, "handle");
+    console.log(false);
+    console.log(location.pathname, "ejecute el else");
     handleRoute(location.pathname);
   }
   window.onpopstate = () => {

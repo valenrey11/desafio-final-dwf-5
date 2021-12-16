@@ -1,13 +1,12 @@
 import { state } from "../../state";
-
 export function initReveal(change) {
   const div = document.createElement("div");
   div.innerHTML = `
     <div class="cont-play">
-    <div class="manos-contenedor">
-    <my-jugada class="play pc" jugada="pc"></my-jugada> 
-    <my-jugada class="play user" jugada="user"></my-jugada> 
-    </div>
+      <div class="manos-contenedor">
+        <my-jugada class="play pc" jugada="pc"></my-jugada> 
+        <my-jugada class="play user" jugada="user"></my-jugada> 
+      </div>
     </div>
     `;
   const lastState = state.getState();
@@ -27,69 +26,85 @@ export function initReveal(change) {
 
   const style = document.createElement("style");
   style.textContent = `
-        .cont-play{
-          height:100vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding:30px;
+    .cont-play {
+      height: 100vh;
+    }
+    .manos-contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 300px;
+    }
+    @media (min-width: 677px) {
+      .manos-contenedor {
+        gap: 0px;
+      }
+    }
+    .play {
+      pointer-events: none;
+    }
+    
+    .pc {
+      transform: rotate(180deg);
+      animation-name: pc;
+      animation-duration: 1.2s;
+      animation-fill-mode: forwards;
+    }
+    .user {
+      animation-name: user;
+      animation-duration: 1.2s;
+      animation-fill-mode: forwards;
+    }
+    
+    @keyframes pc {
+      from {
+        position: absolute;
+        top: 0%;
+      }
+      to {
+        position: absolute;
+        top: 25%;
+      }
+    }
+    @media (min-width: 677px) {
+      @keyframes pc {
+        from {
+          position: absolute;
+          top: 0%;
         }
-        .manos-contenedor{
-          display:flex;
-          flex-direction:column;
-          gap:300px;
+        to {
+          position: absolute;
+          top: 4.7%;
         }
-        @media(min-width:677px){
-          .manos-contenedor{
-            gap:0px;
-          }
+      }
+    }
+    
+    @keyframes user {
+      from {
+        position: absolute;
+        bottom: 0%;
+      }
+      to {
+        position: absolute;
+        bottom: 25%;
+      }
+    }
+    @media (min-width: 677px) {
+      @keyframes user {
+        from {
+          position: absolute;
+          bottom: 0%;
         }
-        .play{
-          pointer-events: none;
+        to {
+          position: absolute;
+          bottom: 4.7%;
         }
-        .pc{
-          transform: rotate(180deg);
-          animation-name: pc;
-          animation-duration:1.5s;
-          animation-fill-mode:forwards;
-        }
-        .user{
-          animation-name: user;
-          animation-duration:1.5s;
-          animation-fill-mode:forwards;
-        }
-        @media(min-width:677px){
-          .pc{
-            transform: rotate(180deg);
-            animation-name: none;
-          }
-          .user{
-            animation-name: none;
-          }
-        }
-        @keyframes pc {
-          from {
-            position: relative;
-            top: 0%;
-          }
-          to {
-            position: relative;
-            top: 18%;
-          }
-        }
-        @keyframes user {
-          from {
-            position: relative;
-            bottom: 0%;
-          }
-          to {
-            position: relative;
-            bottom: 18%;
-          }
-        }
-        
-        `;
+      }
+    }
+    
+    `;
   div.appendChild(style);
+  console.log(div);
 
   function redirect() {
     if (finalResult == "user-win") {
@@ -101,7 +116,7 @@ export function initReveal(change) {
     }
   }
 
-  setTimeout(redirect, 2500);
+  setTimeout(redirect, 2200);
 
   return div;
 }
